@@ -1,0 +1,270 @@
+:root {
+    --bg-a: #ffd9ec;
+    --bg-b: #d7edff;
+    --bg-c: #efe2ff;
+    --card: rgba(255, 255, 255, 0.72);
+    --text: #50345f;
+    --pink: #ff8ec6;
+    --blue: #70c4ff;
+    --lav: #b596ff;
+    --peach: #ffbf99;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-a), var(--bg-b), var(--bg-c));
+}
+
+.page-bg {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 15% 15%, #ffffff99 0, transparent 45%),
+        radial-gradient(circle at 80% 20%, #ffe9f699 0, transparent 42%),
+        radial-gradient(circle at 70% 70%, #e7f4ffbb 0, transparent 44%);
+    pointer-events: none;
+}
+
+.app-shell {
+    width: min(1080px, 94vw);
+    margin: 1rem auto 8rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 320px 1fr;
+}
+
+.glass {
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    border: 1px solid #ffffffcc;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px #8f65ba26;
+}
+
+.top-card {
+    grid-column: 1 / -1;
+    padding: 1rem 1.4rem;
+}
+
+.top-card h1 {
+    margin: 0;
+    font-family: "Baloo 2", cursive;
+    letter-spacing: 0.5px;
+}
+
+.top-card p {
+    margin: 0.25rem 0 0;
+}
+
+.setup-panel,
+.game-panel {
+    padding: 1rem;
+}
+
+.field-group {
+    margin-bottom: 0.8rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+}
+
+input,
+select {
+    width: 100%;
+    border: 2px solid #ffffff;
+    border-radius: 16px;
+    padding: 0.65rem 0.75rem;
+    font-size: 1rem;
+    outline: none;
+    background: #ffffffc7;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--lav);
+}
+
+.room-actions {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.join-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+}
+
+.btn {
+    border: none;
+    border-radius: 999px;
+    padding: 0.62rem 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.14s ease, filter 0.2s ease;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.btn.primary {
+    background: linear-gradient(120deg, var(--lav), var(--pink));
+    color: #fff;
+}
+
+.btn.secondary {
+    background: linear-gradient(120deg, var(--blue), #90deff);
+    color: #21417a;
+}
+
+
+.btn.peach {
+    background: linear-gradient(120deg, var(--peach), #ffd7bf);
+    color: #7a3d2e;
+}
+
+.btn:disabled,
+input:disabled,
+select:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.status {
+    min-height: 2.8rem;
+    margin-top: 0.8rem;
+    font-weight: 700;
+}
+
+.firebase-help {
+    margin-top: 0.8rem;
+    background: #fff8;
+    border-radius: 14px;
+    padding: 0.6rem;
+}
+
+.firebase-help pre {
+    overflow: auto;
+    background: #fff;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.hud,
+.scoreboard {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.scoreboard {
+    margin-top: 0.65rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pill,
+.score {
+    background: #ffffffcc;
+    border-radius: 14px;
+    padding: 0.5rem 0.6rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.player-one {
+    border: 2px solid #ffa5d5;
+}
+
+.player-two {
+    border: 2px solid #9ad9ff;
+}
+
+.canvas-wrap {
+    margin-top: 0.8rem;
+    position: relative;
+}
+
+canvas {
+    width: 100%;
+    max-height: 72vh;
+    background: linear-gradient(160deg, #fff7fd, #f8fbff);
+    border-radius: 18px;
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background: #fff8f0d8;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.mobile-controls {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.6rem;
+    background: #fff6;
+    backdrop-filter: blur(8px);
+}
+
+.mobile-controls button {
+    border: none;
+    border-radius: 16px;
+    width: 72px;
+    height: 58px;
+    font-size: 1.65rem;
+    box-shadow: 0 8px 20px #7d5a9f33;
+    background: linear-gradient(130deg, #fff, #fde7f8);
+    margin: 0.18rem;
+    transition: transform 0.09s ease;
+}
+
+.mobile-controls button:active {
+    transform: scale(0.9);
+}
+
+.middle-row {
+    display: flex;
+}
+
+@media (max-width: 940px) {
+    .app-shell {
+        grid-template-columns: 1fr;
+        margin-bottom: 8.5rem;
+    }
+
+    .mobile-controls {
+        display: flex;
+    }
+
+    .hud {
+        grid-template-columns: 1fr;
+    }
+}

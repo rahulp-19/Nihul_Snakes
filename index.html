@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nihul</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#064e3b', // emerald-900
+                        secondary: '#111827', // gray-900
+                        accent: '#f59e0b', // amber-500
+                        light: '#f8fafc', // slate-50
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #064e3b;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #042f2e;
+        }
+
+        body {
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25"
+  }
+}
+</script>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<title>Nihul Snakes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700;800&family=Nunito:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
+<div class="page-bg"></div>
+
+<main class="app-shell">
+    <header class="top-card glass">
+        <h1>🐍 Nihul Snakes</h1>
+        <p>For Nikku And Rahul.</p>
+    </header>
+
+    <section class="setup-panel glass" id="setupPanel">
+        <div class="field-group">
+            <label for="playerName">Your Name</label>
+            <input id="playerName" maxlength="14" placeholder="Player" />
+        </div>
+
+        <div class="field-group">
+            <label for="difficulty">Difficulty</label>
+            <select id="difficulty">
+                <option value="easy">Easy (slow, large grid)</option>
+                <option value="medium" selected>Medium (normal, medium grid)</option>
+                <option value="hard">Hard (fast, small grid)</option>
+            </select>
+        </div>
+
+        <div class="field-group">
+            <label for="gameMode">Mode</label>
+            <select id="gameMode">
+                <option value="online" selected>Online Multiplayer</option>
+                <option value="single">Single Player</option>
+            </select>
+        </div>
+
+        <div class="room-actions">
+            <button id="singlePlayerBtn" class="btn peach">Start Single Player</button>
+            <button id="createRoomBtn" class="btn primary">Create Room</button>
+            <div class="join-row">
+                <input id="roomCodeInput" maxlength="6" placeholder="ROOM" />
+                <button id="joinRoomBtn" class="btn secondary">Join Room</button>
+            </div>
+        </div>
+
+                </li>
+               
+            </ol>
+        </details>
+
+        <p class="status" id="statusText">Welcome! Create or join a room to start.</p>
+    </section>
+
+    <section class="game-panel glass">
+        <div class="hud">
+            <div class="pill" id="roomBadge">Room: ----</div>
+            <div class="pill" id="playerBadge">You: -</div>
+            <div class="pill" id="difficultyBadge">Difficulty: Medium</div>
+        </div>
+
+        <div class="scoreboard">
+            <article class="score player-one">
+                <h3 id="p1Name">Player 1</h3>
+                <p>Score: <span id="p1Score">0</span></p>
+            </article>
+            <article class="score player-two">
+                <h3 id="p2Name">Player 2</h3>
+                <p>Score: <span id="p2Score">0</span></p>
+            </article>
+        </div>
+
+        <div class="canvas-wrap">
+            <canvas id="gameCanvas" width="560" height="560"></canvas>
+            <div class="overlay" id="gameOverlay">
+                <h2 id="overlayTitle">Waiting for room...</h2>
+                <p id="overlayMessage">Create or join a room to play.</p>
+                <button id="restartBtn" class="btn primary hidden">Restart</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<section class="mobile-controls" aria-label="Mobile direction controls">
+    <button data-dir="up">⬆️</button>
+    <div class="middle-row">
+        <button data-dir="left">⬅️</button>
+        <button data-dir="down">⬇️</button>
+        <button data-dir="right">➡️</button>
+    </div>
+</section>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+<script src="game.js"></script>
+</body>
+
+</html>
